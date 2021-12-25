@@ -8,6 +8,11 @@
 #  partition 1: vfat,8G,format_true
 #  Partition 2: ext3,4G,format_true
 
+# Watch Here !!! 
+# when skip_sector != 16 (mmc device) or skip_sector != 63 (sda device)
+# disk only can have one partition , otherwise will error,
+# this is casued by fdisk, it cannot skip the free sectors reserved.
+
 part_num="`echo $1 | awk -F '@' '{print $1}'`"
 part_true="`echo $1 | awk -F '@' '{print $2}'`"
 skip_sector="`echo $1 | awk -F '@' '{print $3}'`"
