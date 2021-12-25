@@ -1,0 +1,89 @@
+{
+	"supported_product": [
+		{
+			"board_type": "301-0001",
+			"pcba": 1,
+			"tag": 0
+		},
+		{
+			"board_type": "301-0009"
+		},
+		{
+			"board_type": "SOM-0002",
+			"carriers":[
+				{
+					"board_type": "CB-0102"
+				},
+				{
+					"board_type": "CB-0202"
+				}
+			]
+		}
+	],
+	"pre-exec": [
+		{
+			"cmd": "/run/media/sda1/pre-exec.sh",
+			"parameter": "parameter1 paramerer2"
+		}
+	],
+	"storages": [
+		{
+			"name": "boot",
+			"device": "mtd0",
+			"filesystem": "raw",
+			"files": [
+				{
+					"name": "Boot Firware",
+					"filename": "/run/media/sda1/sbc0001/bootfw.bin",
+					"hash": "9c67762b63ea2a63ee0edc276d16174d",
+					"options": "seek=0"
+				}
+			]
+		},
+		{
+			"name": "filesystem",
+			"device": "mmcblk0",
+			"parted": true,
+			"partitions": [
+				{
+					"partition_num": 1,
+					"filesystem": "ext4",
+					"format": true,
+					"skipsector": 16,
+					"size": "8G",
+					"files": [
+						{
+							"filename": "/run/media/sda1/sbc0001/board.itb",
+							"dir": "/boot",
+							"hash": "b33175fcc29391d4f30cd48d134f437c"
+						},
+						{
+							"filename": "/run/media/sda1/sbc0001/rootfs.ls.ubuntu.190720.tgz",
+							"dir": "/",
+							"hash": "4f462908b7e076e2c285a541889e00b2"
+						}
+					]
+				},
+				{
+					"partition_num": 2,
+					"filesystem": "ext4",
+					"format": true,
+					"files": [
+						{
+							"filename": "/run/media/sda1/sbc0001/usrdata.tgz",
+							"dir": "/",
+							"hash": "96fd226983b333edd6e89b116d759964"
+						}
+					]
+				}
+			]
+		}
+	],
+	"post-exec": [
+		{
+			"cmd": "/run/media/sda1/post-exec.sh",
+			"parameter": "yytek"
+		}
+	]
+}
+
