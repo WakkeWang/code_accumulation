@@ -8,7 +8,7 @@
 #  partition 1: vfat,8G,format_true
 #  Partition 2: ext3,4G,format_true
 
-# Watch Here !!! 
+# Watch Here !!!
 # when skip_sector != 16 (mmc device) or skip_sector != 63 (sda device)
 # disk only can have one partition , otherwise will error,
 # this is casued by fdisk, it cannot skip the free sectors reserved.
