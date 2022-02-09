@@ -55,18 +55,18 @@ const void *help =
 	"\n";
 
 static const struct option long_options[] = {
-	{"version",		0,					NULL, 'v'},
-	{"help",		0,					NULL, 'h'},
-	{"loglevel",	required_argument,	NULL, 'l'},
-	{"miiread",		required_argument,	NULL, 0x1},
-	{"miiwrite",	required_argument,	NULL, 0x2},
-	{"looptest",	required_argument,	NULL, 0x3},
-	{"speedtest",	required_argument,	NULL, 0x4},
-	{"burneeff",	required_argument,	NULL, 0x5},
-	{"readeetf",	required_argument,	NULL, 0x6},
-	{"readee",		required_argument,	NULL, 0x7},
-	{"writee",		required_argument,	NULL, 0x8},
-	{ NULL,			0, 					0,    0},
+	{"version",     no_argument,		NULL, 'v'},
+	{"help",        no_argument,		NULL, 'h'},
+	{"loglevel",    required_argument,	NULL, 'l'},
+	{"miiread",     required_argument,	NULL, 0x1},
+	{"miiwrite",    required_argument,	NULL, 0x2},
+	{"looptest",    required_argument,	NULL, 0x3},
+	{"speedtest",   required_argument,	NULL, 0x4},
+	{"burneeff",    required_argument,	NULL, 0x5},
+	{"readeetf",    required_argument,	NULL, 0x6},
+	{"readee",      required_argument,	NULL, 0x7},
+	{"writee",      required_argument,	NULL, 0x8},
+	{ NULL,         0,                	NULL, 0},
 };
 
 static char cmd_argv[256];
